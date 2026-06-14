@@ -3,65 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>প্রজেক্টস</title>
+    <title>ডিজাইন শপ | Fx Alamin</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            min-height: 100vh;
-            padding: 20px;
-        }
+        body { font-family: 'Inter', sans-serif; background: #f8f9fc; color: #1a1a2e; }
+        
         header {
-            background: rgba(255,255,255,0.15);
-            padding: 1rem 0;
+            background: linear-gradient(135deg, #6d28d9, #8b5cf6);
+            color: white;
+            padding: 20px 0;
             text-align: center;
-            margin-bottom: 40px;
         }
-        .logo { font-size: 2.2rem; font-weight: bold; }
-        main { max-width: 1000px; margin: 0 auto; }
-        h1 { text-align: center; margin-bottom: 50px; font-size: 3rem; }
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+        .logo-area {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
         }
-        .project-card {
-            background: rgba(255,255,255,0.2);
-            border-radius: 15px;
-            padding: 25px;
-            transition: all 0.4s;
+        .logo-area img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 4px solid white;
         }
-        .project-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255,255,255,0.3);
-        }
-        .project-card h2 { margin-bottom: 15px; }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">MySite</div>
-    </header>
-    <main>
-        <h1>আমার প্রজেক্টস</h1>
-        
-        <div class="projects-grid">
-            <div class="project-card">
-                <h2>১. প্রথম ওয়েবসাইট</h2>
-                <p>HTML + CSS দিয়ে বানানো এই পোর্টফোলিও সাইট।</p>
-            </div>
-            
-            <div class="project-card">
-                <h2>২. দ্বিতীয় প্রজেক্ট</h2>
-                <p>এখানে পরে আরেকটা প্রজেক্ট যোগ করবো।</p>
+        <div class="logo-area">
+            <img src="my-photo.jpg" alt="Fx Alamin">
+            <div>
+                <h1 style="font-size:2.2rem;">ডিজাইন শপ</h1>
+                <p>প্রিমিয়াম গ্রাফিক ডিজাইন রিসোর্স</p>
             </div>
         </div>
+    </header>
+
+    <h2 style="text-align:center; margin:40px 0 30px;">আমার ডিজাইনসমূহ</h2>
+
+    <!-- তোমার ডিজাইন কার্ডগুলো এখানে যোগ করো -->
+    <div style="max-width:1200px; margin:0 auto; padding:20px; display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:25px;">
         
-        <p style="text-align:center; margin-top: 50px;">
-            <a href="index.html" style="color:#ffd700; font-size: 1.2rem;">← হোমে ফিরে যাও</a>
-        </p>
-    </main>
+        <div style="background:white; border-radius:16px; overflow:hidden; box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+            <img src="design1.jpg" style="width:100%; height:240px; object-fit:cover;">
+            <div style="padding:20px; text-align:center;">
+                <h3>ফলের উৎসব পোস্টার ২০২৬</h3>
+                <p style="color:#6d28d9; font-weight:bold;">৳ ২৯৯</p>
+            </div>
+        </div>
+
+    </div>
 </body>
 </html>
