@@ -3,109 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ডিজাইন শপ | Fx Alamin</title>
+    <title>Fx Alamin Design - ডিজাইন শপ</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background: #f8f9fc; color: #1a1a2e; }
 
+        /* হেডার */
         header {
-            background: linear-gradient(135deg, #6d28d9, #8b5cf6);
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
             color: white;
-            padding: 20px 0;
-            text-align: center;
+            padding: 1rem 0;
         }
-        .logo-area {
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 15px;
+            gap: 12px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: white;
+        }
+        .logo img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+
+        /* হিরো সেকশন */
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 15px;
+        }
+        .search-bar {
+            max-width: 700px;
+            margin: 30px auto;
+            display: flex;
+            background: white;
+            border-radius: 50px;
+            padding: 8px;
+        }
+        .search-bar input {
+            flex: 1;
+            border: none;
+            padding: 15px 20px;
+            font-size: 1.1rem;
+            outline: none;
+        }
+        .search-bar button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 0 35px;
+            border-radius: 50px;
             cursor: pointer;
         }
-        .logo-area img {
-            width: 75px;
-            height: 75px;
-            border-radius: 50%;
-            border: 4px solid white;
-            object-fit: cover;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-        .logo-text {
-            font-size: 2.4rem;
-            font-weight: 700;
-        }
-        .subtitle {
-            font-size: 1.1rem;
-            opacity: 0.95;
-        }
 
-        .main-content {
+        /* সার্ভিস সেকশন */
+        .services {
             max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-            display: flex;
-            gap: 40px;
-            flex-wrap: wrap;
+            margin: 80px auto;
+            padding: 0 40px;
         }
-        .profile-sidebar { text-align: center; min-width: 260px; }
-        .profile-sidebar img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 5px solid #6d28d9;
+        .services h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 50px;
         }
-
-        .gallery {
-            flex: 1;
+        .service-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
         }
-        .card {
+        .service-card {
             background: white;
+            padding: 30px;
             border-radius: 16px;
-            overflow: hidden;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            cursor: pointer;
+            text-align: center;
+            transition: 0.3s;
         }
-        .card:hover { transform: translateY(-8px); }
-        .card img { width: 100%; height: 220px; object-fit: cover; }
-        .card-info { padding: 15px; text-align: center; }
-        .price { color: #6d28d9; font-weight: 700; }
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo-area" onclick="window.location.href='index.html'">
-            <img src="my-photo.jpg" alt="Fx Alamin">
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="my-photo.jpg" alt="Fx Alamin">
+                Fx Alamin Design
+            </a>
             <div>
-                <div class="logo-text">ডিজাইন শপ</div>
-                <div class="subtitle">প্রিমিয়াম গ্রাফিক ডিজাইন রিসোর্স</div>
+                <a href="projects.html" style="color:white; margin-right:25px;">ডিজাইন শপ</a>
+                <a href="contact.html" style="color:white;">যোগাযোগ</a>
             </div>
-        </div>
+        </nav>
     </header>
 
-    <div class="main-content">
-        <!-- বাম পাশে প্রোফাইল -->
-        <div class="profile-sidebar">
-            <img src="my-photo.jpg" alt="Fx Alamin">
-            <h2>Fx Alamin</h2>
-            <p><strong>মোবাইল:</strong> ০১XXXXXXXXXX</p>
-            <p>প্রফেশনাল গ্রাফিক ডিজাইনার</p>
+    <section class="hero">
+        <h1>The Largest Platform of Graphic Resources</h1>
+        <p style="font-size:1.3rem; margin-bottom:30px;">প্রিমিয়াম গ্রাফিক ডিজাইন রিসোর্স | পোস্টার • ব্যানার • ব্র্যান্ডিং</p>
+        
+        <div class="search-bar">
+            <input type="text" placeholder="কী ধরনের ডিজাইন খুঁজছেন? (যেমন: রমজান ব্যানার)">
+            <button>Search</button>
         </div>
+    </section>
 
-        <!-- ডান পাশে গ্যালারি -->
-        <div class="gallery">
-            <!-- তোমার ডিজাইন কার্ডগুলো এখানে থাকবে -->
-            <div class="card" onclick="alert('ডিজাইন দেখা হচ্ছে...')">
-                <img src="design1.jpg" alt="ফলের উৎসব">
-                <div class="card-info">
-                    <h3>ফলের উৎসব পোস্টার ২০২৬</h3>
-                    <p class="price">৳ ২৯৯</p>
-                </div>
+    <!-- সার্ভিস সেকশন -->
+    <section class="services">
+        <h2>আমার সার্ভিসসমূহ</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <h3>🎨 পোস্টার ডিজাইন</h3>
+                <p>ইভেন্ট, ফেস্টিভাল, প্রোডাক্ট পোস্টার</p>
+            </div>
+            <div class="service-card">
+                <h3>📱 সোশ্যাল মিডিয়া ডিজাইন</h3>
+                <p>থাম্বনেইল, ব্যানার, পোস্ট সিরিজ</p>
+            </div>
+            <div class="service-card">
+                <h3>🏷️ ব্র্যান্ডিং ও লোগো</h3>
+                <p>লোগো ডিজাইন, ব্র্যান্ড আইডেন্টিটি</p>
+            </div>
+            <div class="service-card">
+                <h3>🖼️ ব্যানার ও প্রিন্ট ডিজাইন</h3>
+                <p>বড় ব্যানার, ফ্লায়ার, ভিজিটিং কার্ড</p>
             </div>
         </div>
-    </div>
+    </section>
 </body>
 </html>
