@@ -3,64 +3,100 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DesignCraft Pro Portfolio</title>
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<title>DesignCraft Marketplace</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI}
+
 body{
-  font-family:Segoe UI,Arial;
-  background:#f8f7ff;
+  background:#f6f7ff;
   color:#1a1a2e;
 }
 
-/* NAV */
-.nav{
+/* HEADER */
+header{
+  background:white;
+  padding:15px 20px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:15px 25px;
-  background:white;
   position:sticky;
   top:0;
-  z-index:999;
+  z-index:1000;
   box-shadow:0 2px 10px rgba(0,0,0,0.05);
 }
-.logo{font-weight:800;color:#7F77DD;font-size:20px}
-.nav a{margin:0 10px;text-decoration:none;color:#555}
 
-/* HERO */
-.hero{
-  text-align:center;
-  padding:60px 20px;
-  background:linear-gradient(135deg,#f0eeff,#e6f5ee,#fff5e6);
+.logo{
+  font-size:20px;
+  font-weight:800;
+  color:#6d28d9;
 }
-.hero h1{font-size:40px}
-.hero span{color:#7F77DD}
 
-/* SECTION */
-.section{padding:50px 20px}
+/* SEARCH */
+.search-box input{
+  padding:10px;
+  width:250px;
+  border:1px solid #ddd;
+  border-radius:8px;
+}
 
-/* GALLERY */
-.gallery{
+/* CATEGORY */
+.categories{
+  display:flex;
+  gap:10px;
+  padding:15px;
+  overflow-x:auto;
+}
+
+.cat{
+  padding:8px 14px;
+  background:white;
+  border-radius:20px;
+  cursor:pointer;
+  border:1px solid #eee;
+  white-space:nowrap;
+  transition:0.2s;
+}
+.cat:hover{
+  background:#6d28d9;
+  color:white;
+}
+
+/* GRID */
+.container{
+  padding:20px;
+}
+
+.grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:15px;
 }
 
 .card{
   background:white;
-  border-radius:14px;
+  border-radius:12px;
   overflow:hidden;
   cursor:pointer;
-  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+  box-shadow:0 5px 15px rgba(0,0,0,0.05);
   transition:0.3s;
 }
 .card:hover{transform:translateY(-5px)}
-.card img{width:100%;height:200px;object-fit:cover}
-.card-info{padding:12px}
-.price{color:#7F77DD;font-weight:700}
+
+.card img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+}
+
+.card-body{
+  padding:10px;
+}
+
+.price{
+  color:#6d28d9;
+  font-weight:700;
+}
 
 /* MODAL */
 .modal{
@@ -70,26 +106,26 @@ body{
   background:rgba(0,0,0,0.85);
   justify-content:center;
   align-items:center;
-  z-index:1000;
 }
+
 .modal-box{
   background:white;
   width:90%;
-  max-width:700px;
-  border-radius:12px;
+  max-width:650px;
+  border-radius:10px;
   overflow:hidden;
 }
-.modal-box img{width:100%}
-.modal-content{padding:20px}
-.close{
-  position:absolute;
-  right:20px;
-  top:10px;
-  font-size:30px;
-  cursor:pointer;
+
+.modal-box img{
+  width:100%;
+  max-height:400px;
+  object-fit:contain;
 }
 
-/* BUTTON */
+.modal-content{
+  padding:15px;
+}
+
 .btn{
   width:100%;
   padding:12px;
@@ -99,52 +135,62 @@ body{
   border-radius:8px;
   font-weight:600;
 }
+
 .btn-green{background:#10b981;color:white}
-.btn-purple{background:#7F77DD;color:white}
+.btn-purple{background:#6d28d9;color:white}
+
+.close{
+  position:absolute;
+  right:20px;
+  top:10px;
+  font-size:28px;
+  cursor:pointer;
+  color:white;
+}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+  .search-box input{width:150px}
+}
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
-<div class="nav">
-  <div class="logo">DesignCraft Pro</div>
-  <div>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
+<header>
+  <div class="logo">DesignCraft Market</div>
+  <div class="search-box">
+    <input type="text" id="search" placeholder="Search design..." onkeyup="searchDesign()">
   </div>
+</header>
+
+<!-- CATEGORY -->
+<div class="categories">
+  <div class="cat" onclick="filterCat('all')">All</div>
+  <div class="cat" onclick="filterCat('poster')">Poster</div>
+  <div class="cat" onclick="filterCat('logo')">Logo</div>
+  <div class="cat" onclick="filterCat('banner')">Banner</div>
 </div>
 
-<!-- HERO -->
-<div class="hero">
-  <h1>Creative <span>Design Portfolio</span></h1>
-  <p>Professional Graphic Designer in Bangladesh</p>
-</div>
+<!-- PRODUCT GRID -->
+<div class="container">
+<div class="grid" id="grid">
 
-<!-- PORTFOLIO / GALLERY -->
-<div class="section" id="portfolio">
-
-<h2 style="text-align:center;margin-bottom:20px;">My Works</h2>
-
-<div class="gallery">
-
-<!-- CARD 1 -->
-<div class="card"
-onclick="openModal('design1.jpg','ফলের উৎসব পোস্টার','প্রিমিয়াম ফেস্টিভাল ডিজাইন',299,'FRUIT2026')">
+<!-- PRODUCT -->
+<div class="card" data-cat="poster"
+onclick="openModal('design1.jpg','Festival Poster','Premium Poster Design',299,'CODE123')">
   <img src="design1.jpg">
-  <div class="card-info">
-    <h3>ফলের উৎসব পোস্টার</h3>
+  <div class="card-body">
+    <h4>Festival Poster</h4>
     <p class="price">৳299</p>
   </div>
 </div>
 
-<!-- CARD 2 -->
-<div class="card"
-onclick="openModal('design2.jpg','লোগো ডিজাইন','ব্র্যান্ড লোগো ডিজাইন',499,'LOGO2026')">
+<div class="card" data-cat="logo"
+onclick="openModal('design2.jpg','Logo Design','Brand Logo',499,'LOGO999')">
   <img src="design2.jpg">
-  <div class="card-info">
-    <h3>লোগো ডিজাইন</h3>
+  <div class="card-body">
+    <h4>Logo Design</h4>
     <p class="price">৳499</p>
   </div>
 </div>
@@ -153,17 +199,16 @@ onclick="openModal('design2.jpg','লোগো ডিজাইন','ব্র্
 </div>
 
 <!-- MODAL -->
-<div class="modal" id="modal" onclick="outside(event)">
+<div class="modal" id="modal" onclick="closeModal(event)">
   <div class="modal-box">
-    <div class="close" onclick="closeModal()">&times;</div>
     <img id="mImg">
     <div class="modal-content">
-      <h2 id="mTitle"></h2>
+      <h3 id="mTitle"></h3>
       <p id="mDesc"></p>
       <p class="price" id="mPrice"></p>
 
-      <button class="btn btn-green" onclick="downloadFile()">📥 Download</button>
-      <button class="btn btn-purple" onclick="orderNow()">🛒 Order on WhatsApp</button>
+      <button class="btn btn-green" onclick="downloadFile()">Download</button>
+      <button class="btn btn-purple" onclick="orderNow()">Order WhatsApp</button>
     </div>
   </div>
 </div>
@@ -185,16 +230,13 @@ function openModal(img,t,d,p,c){
   document.getElementById("modal").style.display="flex";
 }
 
-function closeModal(){
-  document.getElementById("modal").style.display="none";
-}
-
-function outside(e){
-  if(e.target.id==="modal") closeModal();
+function closeModal(e){
+  if(e.target.id==="modal")
+    document.getElementById("modal").style.display="none";
 }
 
 function downloadFile(){
-  let input=prompt("Enter download code:");
+  let input=prompt("Enter code:");
   if(input===code){
     let a=document.createElement("a");
     a.href=file;
@@ -206,7 +248,31 @@ function downloadFile(){
 function orderNow(){
   let phone="8801761399365";
   let msg=`Hello,%0AI want this design:%0A${title}`;
-  window.open(`https://wa.me/${phone}?text=${msg}`,'_blank');
+  window.open(`https://wa.me/${phone}?text=${msg}`);
+}
+
+/* SEARCH */
+function searchDesign(){
+  let input=document.getElementById("search").value.toLowerCase();
+  let cards=document.querySelectorAll(".card");
+
+  cards.forEach(c=>{
+    let text=c.innerText.toLowerCase();
+    c.style.display=text.includes(input)?"block":"none";
+  });
+}
+
+/* CATEGORY FILTER */
+function filterCat(cat){
+  let cards=document.querySelectorAll(".card");
+
+  cards.forEach(c=>{
+    if(cat==="all"){
+      c.style.display="block";
+    }else{
+      c.style.display=c.dataset.cat===cat?"block":"none";
+    }
+  });
 }
 
 </script>
