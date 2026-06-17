@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fx Alamin Design - ডিজাইন শপ</title>
+    <title>ডিজাইন শপ | Fx Alamin</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         
@@ -11,104 +11,155 @@
         body { font-family: 'Inter', sans-serif; background: #f8f9fc; color: #1a1a2e; }
 
         header {
-            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            background: linear-gradient(135deg, #6d28d9, #8b5cf6);
             color: white;
-            padding: 1rem 0;
-        }
-        nav {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1.8rem;
-            font-weight: 700;
-            text-decoration: none;
-            color: white;
-        }
-        .logo img {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            border: 3px solid white;
-        }
-
-        .hero {
-            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
-            color: white;
+            padding: 20px 0;
             text-align: center;
-            padding: 100px 20px;
         }
-        .hero h1 { font-size: 3.2rem; margin-bottom: 15px; }
-        .hero p { font-size: 1.3rem; max-width: 700px; margin: 0 auto 30px; }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        .logo-area img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 4px solid white;
+            object-fit: cover;
+        }
+        .logo-text { font-size: 2.2rem; font-weight: 700; }
 
-        .services {
+        .main-content {
             max-width: 1200px;
-            margin: 80px auto;
-            padding: 0 40px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
         }
-        .services h2 { text-align: center; font-size: 2.8rem; margin-bottom: 50px; }
-        .service-grid {
+        .profile-sidebar { text-align: center; min-width: 260px; }
+        .profile-sidebar img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid #6d28d9;
+        }
+
+        .gallery {
+            flex: 1;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
         }
-        .service-card {
+        .card {
             background: white;
-            padding: 30px;
             border-radius: 16px;
+            overflow: hidden;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
         }
+        .card:hover { transform: translateY(-8px); }
+        .card img { width: 100%; height: 220px; object-fit: cover; }
+        .card-info { padding: 15px; text-align: center; }
+        .price { color: #6d28d9; font-weight: 700; }
+
+        /* Modal */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; align-items: center; justify-content: center; }
+        .modal-content { background: white; max-width: 900px; width: 90%; border-radius: 16px; overflow: hidden; }
+        .modal img { width: 100%; max-height: 70vh; object-fit: contain; }
+        .modal-info { padding: 25px; }
     </style>
 </head>
 <body>
     <header>
-        <nav>
-            <a href="index.html" class="logo">
-                <img src="my-photo.jpg" alt="Fx Alamin">
-                Fx Alamin Design
-            </a>
+        <div class="logo-area">
+            <img src="my-photo.jpg" alt="Fx Alamin">
             <div>
-                <a href="projects.html" style="color:white; margin-right:25px;">ডিজাইন শপ</a>
-                <a href="contact.html" style="color:white;">যোগাযোগ</a>
-            </div>
-        </nav>
-    </header>
-
-    <section class="hero">
-        <h1>প্রিমিয়াম গ্রাফিক ডিজাইন রিসোর্স</h1>
-        <p>পোস্টার • ব্যানার • লোগো • সোশ্যাল মিডিয়া ডিজাইন</p>
-        <a href="projects.html" style="background:white; color:#1e3a8a; padding:14px 40px; border-radius:50px; text-decoration:none; font-weight:600; display:inline-block;">সব ডিজাইন দেখুন</a>
-    </section>
-
-    <!-- সার্ভিস সেকশন -->
-    <section class="services">
-        <h2>আমার সার্ভিসসমূহ</h2>
-        <div class="service-grid">
-            <div class="service-card">
-                <h3>🎨 পোস্টার ডিজাইন</h3>
-                <p>ইভেন্ট, ফেস্টিভাল, প্রোডাক্ট পোস্টার</p>
-            </div>
-            <div class="service-card">
-                <h3>📱 সোশ্যাল মিডিয়া ডিজাইন</h3>
-                <p>থাম্বনেইল, ব্যানার, অ্যাড ডিজাইন</p>
-            </div>
-            <div class="service-card">
-                <h3>🏷️ লোগো ও ব্র্যান্ডিং</h3>
-                <p>লোগো ডিজাইন ও ব্র্যান্ড আইডেন্টিটি</p>
-            </div>
-            <div class="service-card">
-                <h3>🖼️ ব্যানার ও প্রিন্ট ডিজাইন</h3>
-                <p>বড় ব্যানার, ফ্লায়ার, ভিজিটিং কার্ড</p>
+                <div class="logo-text">ডিজাইন শপ</div>
+                <div>প্রিমিয়াম গ্রাফিক ডিজাইন রিসোর্স</div>
             </div>
         </div>
-    </section>
+    </header>
+
+    <div class="main-content">
+        <!-- বাম পাশে প্রোফাইল -->
+        <div class="profile-sidebar">
+            <img src="my-photo.jpg" alt="Fx Alamin">
+            <h2>Fx Alamin</h2>
+            <p><strong>মোবাইল:</strong> ০১XXXXXXXXXX</p>
+            <p>প্রফেশনাল গ্রাফিক ডিজাইনার</p>
+        </div>
+
+        <!-- ডান পাশে গ্যালারি -->
+        <div class="gallery">
+            <div class="card" onclick="showModal('design1.jpg', 'ফলের উৎসব পোস্টার ২০২৬', 'ফেস্টিভাল পোস্টার, উচ্চমানের প্রিন্ট রেডি', '299', 'FRUIT2026')">
+                <img src="design1.jpg" alt="ফলের উৎসব">
+                <div class="card-info">
+                    <h3>ফলের উৎসব পোস্টার ২০২৬</h3>
+                    <p class="price">৳ ২৯৯</p>
+                </div>
+            </div>
+
+            <!-- আরও ডিজাইন যোগ করতে এই ব্লক কপি করো -->
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span onclick="closeModal()" style="position:absolute; top:15px; right:25px; font-size:35px; cursor:pointer;">&times;</span>
+            <img id="modal-image" src="" alt="">
+            <div class="modal-info">
+                <h2 id="modal-title"></h2>
+                <p id="modal-desc"></p>
+                <p class="price" id="modal-price"></p>
+                <button class="btn" style="background:#10b981; color:white; width:100%; padding:14px; margin:10px 0;" onclick="requestDownloadCode()">📥 ডাউনলোড করুন</button>
+                <button class="btn" style="background:#6d28d9; color:white; width:100%; padding:14px;" onclick="orderNow()">🛒 অর্ডার করুন</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentFile = "", currentDesignName = "", currentCode = "";
+
+        function showModal(img, title, desc, price, code) {
+            currentFile = img;
+            currentDesignName = title;
+            currentCode = code;
+            document.getElementById('modal-image').src = img;
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-desc').innerText = desc;
+            document.getElementById('modal-price').innerHTML = `মূল্য: ৳ ${price}`;
+            document.getElementById('modal').style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = "none";
+        }
+
+        function requestDownloadCode() {
+            const userInput = prompt(`"${currentDesignName}" ডাউনলোড করতে কোড দিন:`);
+            if (userInput === currentCode) {
+                const link = document.createElement('a');
+                link.href = currentFile;
+                link.download = currentFile;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                alert("✅ ডাউনলোড শুরু হয়েছে!");
+            } else {
+                alert("❌ ভুল কোড!");
+            }
+        }
+
+        function orderNow() {
+            const phone = "880XXXXXXXXXX"; // তোমার নাম্বার দাও
+            const msg = `আসসালামু আলাইকুম,%0Aআমি এই ডিজাইন কিনতে চাই:%0A*${currentDesignName}*`;
+            window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
+        }
+    </script>
 </body>
 </html>
