@@ -3,261 +3,304 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ডিজাইন শপ | Fx Alamin</title>
-
+<title>DesignCraft — Graphic Design Portfolio</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#f8f7ff;color:#1a1a2e;scroll-behavior:smooth}
 
-* { margin:0; padding:0; box-sizing:border-box; }
+  /* NAV */
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;background:#fff;border-bottom:1px solid #e8e6f8;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(127,119,221,0.07)}
+  .logo{font-size:20px;font-weight:700;color:#7F77DD;letter-spacing:-0.5px}
+  .nav-links{display:flex;gap:1.75rem}
+  .nav-links a{font-size:14px;color:#555;text-decoration:none;transition:color 0.2s}
+  .nav-links a:hover{color:#7F77DD}
 
-body {
-    font-family:'Inter', sans-serif;
-    background:#f8f9fc;
-    color:#1a1a2e;
-}
+  /* HERO */
+  .hero{padding:5rem 2rem 4rem;text-align:center;background:linear-gradient(135deg,#f0eeff 0%,#e6f5ee 50%,#fff5e6 100%)}
+  .hero-badge{display:inline-block;background:#EEEDFE;color:#3C3489;font-size:12px;font-weight:600;padding:6px 18px;border-radius:20px;margin-bottom:1.25rem;letter-spacing:0.5px}
+  .hero h1{font-size:42px;font-weight:800;color:#1a1a2e;margin-bottom:0.75rem;line-height:1.2}
+  .hero h1 span{color:#7F77DD}
+  .hero p{font-size:16px;color:#666;max-width:520px;margin:0 auto 2rem;line-height:1.8}
+  .hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .btn-primary{background:#7F77DD;color:#fff;border:none;padding:12px 28px;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block;transition:background 0.2s,transform 0.1s}
+  .btn-primary:hover{background:#534AB7;transform:translateY(-1px)}
+  .btn-outline{background:transparent;color:#7F77DD;border:2px solid #7F77DD;padding:12px 28px;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block;transition:all 0.2s}
+  .btn-outline:hover{background:#EEEDFE;transform:translateY(-1px)}
 
-/* HEADER */
-header {
-    background:linear-gradient(135deg,#6d28d9,#8b5cf6);
-    color:white;
-    padding:20px 0;
-    text-align:center;
-}
+  /* STATS */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;padding:2rem;background:#fff;border-bottom:1px solid #e8e6f8}
+  .stat{text-align:center;padding:1.25rem;background:#f8f7ff;border-radius:12px}
+  .stat-num{font-size:30px;font-weight:800;color:#7F77DD}
+  .stat-label{font-size:13px;color:#888;margin-top:5px}
 
-.logo-area {
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:15px;
-}
+  /* SECTIONS */
+  .section{padding:3rem 2rem;border-bottom:1px solid #e8e6f8;background:#fff}
+  .section:nth-child(even){background:#fafafa}
+  .section-tag{font-size:11px;font-weight:700;color:#1D9E75;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+  .section-title{font-size:26px;font-weight:700;color:#1a1a2e;margin-bottom:0.5rem}
+  .section-sub{font-size:15px;color:#777;margin-bottom:2rem;line-height:1.7;max-width:560px}
 
-.logo-area img {
-    width:70px;
-    height:70px;
-    border-radius:50%;
-    border:4px solid white;
-}
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+  .about-card{background:#f8f7ff;border-radius:14px;padding:1.25rem;border:1px solid #e8e6f8;transition:transform 0.2s,box-shadow 0.2s}
+  .about-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(127,119,221,0.12)}
+  .about-icon{font-size:26px;color:#7F77DD;margin-bottom:10px}
+  .about-card h4{font-size:15px;font-weight:600;color:#1a1a2e;margin-bottom:5px}
+  .about-card p{font-size:13px;color:#777;line-height:1.6}
 
-/* LAYOUT */
-.main-content {
-    max-width:1200px;
-    margin:40px auto;
-    padding:0 20px;
-    display:flex;
-    gap:40px;
-    flex-wrap:wrap;
-}
+  /* PORTFOLIO */
+  .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1rem}
+  .port-card{border-radius:14px;overflow:hidden;border:1px solid #e8e6f8;background:#fff;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s}
+  .port-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,0.10)}
+  .port-thumb{height:120px;display:flex;align-items:center;justify-content:center;font-size:38px}
+  .port-info{padding:12px 14px}
+  .port-info h4{font-size:14px;font-weight:600;color:#1a1a2e}
+  .port-info p{font-size:12px;color:#888;margin-top:3px}
+  .port-tag{display:inline-block;font-size:10px;font-weight:600;padding:3px 10px;border-radius:12px;margin-top:8px}
 
-.profile-sidebar {
-    text-align:center;
-    min-width:260px;
-}
+  /* SERVICES */
+  .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1rem}
+  .svc-card{border:1px solid #e8e6f8;border-radius:14px;padding:1.25rem;background:#fff;transition:transform 0.2s,box-shadow 0.2s,border-color 0.2s}
+  .svc-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(127,119,221,0.10);border-color:#7F77DD}
+  .svc-icon{font-size:28px;margin-bottom:12px}
+  .svc-card h4{font-size:15px;font-weight:600;color:#1a1a2e;margin-bottom:5px}
+  .svc-card p{font-size:12px;color:#888;line-height:1.6}
 
-.profile-sidebar img {
-    width:180px;
-    height:180px;
-    border-radius:50%;
-    border:5px solid #6d28d9;
-}
+  /* PRICING */
+  .pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+  .price-card{border:1px solid #e8e6f8;border-radius:16px;padding:1.5rem;background:#fff;transition:transform 0.2s,box-shadow 0.2s}
+  .price-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,0.08)}
+  .price-card.featured{border:2.5px solid #7F77DD;background:#fdfcff}
+  .price-badge{font-size:11px;font-weight:700;background:#EEEDFE;color:#3C3489;padding:4px 12px;border-radius:12px;display:inline-block;margin-bottom:12px}
+  .price-card h4{font-size:17px;font-weight:700;color:#1a1a2e;margin-bottom:5px}
+  .price-amount{font-size:28px;font-weight:800;color:#7F77DD;margin:10px 0}
+  .price-amount span{font-size:14px;color:#999;font-weight:400}
+  .price-features{list-style:none;margin-top:14px}
+  .price-features li{font-size:13px;color:#666;padding:5px 0;display:flex;align-items:center;gap:8px;border-bottom:1px dashed #f0eeff}
+  .price-features li:last-child{border-bottom:none}
+  .price-features li i{color:#1D9E75;font-size:15px}
+  .price-btn{display:block;margin-top:1.25rem;text-align:center;background:#f0eeff;color:#7F77DD;border:none;padding:10px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;transition:background 0.2s}
+  .price-btn:hover{background:#EEEDFE}
+  .price-card.featured .price-btn{background:#7F77DD;color:#fff}
+  .price-card.featured .price-btn:hover{background:#534AB7}
 
-/* GALLERY */
-.gallery {
-    flex:1;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
-}
+  /* CONTACT */
+  .contact-wrapper{display:grid;grid-template-columns:1fr 1.5fr;gap:2rem;align-items:start}
+  .contact-info{display:flex;flex-direction:column;gap:14px;margin-bottom:1.5rem}
+  .contact-row{display:flex;align-items:center;gap:12px;font-size:14px;color:#555;background:#f8f7ff;padding:12px 14px;border-radius:12px;border:1px solid #e8e6f8}
+  .contact-row i{font-size:20px;color:#7F77DD}
+  .contact-form{display:flex;flex-direction:column;gap:14px}
+  .contact-form input,.contact-form textarea,.contact-form select{padding:12px 14px;border:1.5px solid #e8e6f8;border-radius:10px;font-size:14px;background:#fff;color:#1a1a2e;width:100%;font-family:inherit;transition:border-color 0.2s}
+  .contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus{outline:none;border-color:#7F77DD}
+  .contact-form textarea{height:110px;resize:vertical}
+  .contact-form .btn-primary{width:100%;font-size:15px;padding:13px}
 
-.card {
-    background:white;
-    border-radius:16px;
-    overflow:hidden;
-    box-shadow:0 5px 20px rgba(0,0,0,0.1);
-    cursor:pointer;
-    transition:0.3s;
-}
+  /* FOOTER */
+  .footer{padding:2rem;text-align:center;background:#1a1a2e}
+  .footer p{font-size:13px;color:#aaa}
+  .footer span{color:#7F77DD;font-weight:700}
+  .footer-links{display:flex;justify-content:center;gap:1.5rem;margin-top:10px}
+  .footer-links a{font-size:12px;color:#888;text-decoration:none}
+  .footer-links a:hover{color:#7F77DD}
 
-.card:hover {
-    transform:translateY(-8px);
-}
-
-.card img {
-    width:100%;
-    height:220px;
-    object-fit:cover;
-}
-
-.card-info {
-    padding:15px;
-    text-align:center;
-}
-
-.price {
-    color:#6d28d9;
-    font-weight:700;
-}
-
-/* BUTTON */
-.btn {
-    border:none;
-    cursor:pointer;
-    border-radius:10px;
-    font-weight:600;
-}
-
-/* MODAL */
-.modal {
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.85);
-    justify-content:center;
-    align-items:center;
-    z-index:2000;
-    padding:20px;
-}
-
-.modal-content {
-    background:white;
-    max-width:900px;
-    width:100%;
-    border-radius:16px;
-    overflow:hidden;
-    position:relative;
-}
-
-.modal img {
-    width:100%;
-    max-height:70vh;
-    object-fit:contain;
-}
-
-.modal-info {
-    padding:20px;
-}
-
-.close {
-    position:absolute;
-    top:10px;
-    right:15px;
-    font-size:32px;
-    cursor:pointer;
-}
+  @media(max-width:600px){
+    .hero h1{font-size:28px}
+    .nav-links{gap:1rem}
+    .nav-links a{font-size:12px}
+    .stats{grid-template-columns:1fr}
+    .contact-wrapper{grid-template-columns:1fr}
+  }
 </style>
 </head>
-
 <body>
 
-<header>
-<div class="logo-area">
-    <img src="my-photo.jpg">
+<!-- NAVBAR -->
+<nav class="nav">
+  <div class="logo">✦ DesignCraft</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#services">Services</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">✦ Professional Graphic Designer</div>
+  <h1>Creative Design <span>Portfolio</span></h1>
+  <p>বাংলাদেশের শীর্ষস্থানীয় গ্রাফিক্স ডিজাইনার — ব্র্যান্ড আইডেন্টিটি, পোস্টার, ব্যানার, সোশ্যাল মিডিয়া ডিজাইনে বিশেষজ্ঞ।</p>
+  <div class="hero-btns">
+    <a href="#portfolio" class="btn-primary">কাজ দেখুন</a>
+    <a href="#contact" class="btn-outline">যোগাযোগ করুন</a>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-num">200+</div><div class="stat-label">সম্পন্ন প্রজেক্ট</div></div>
+  <div class="stat"><div class="stat-num">150+</div><div class="stat-label">সন্তুষ্ট ক্লায়েন্ট</div></div>
+  <div class="stat"><div class="stat-num">5+</div><div class="stat-label">বছরের অভিজ্ঞতা</div></div>
+</div>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-tag">About Me</div>
+  <div class="section-title">আমার সম্পর্কে</div>
+  <div class="port-thumb">
+  <img src="my-photo.jpg" style="width:100%;height:50px;object-fit:cover;">
+  <div class="section-sub">Adobe Illustrator, Photoshop ও Canva-তে দক্ষ একজন প্রফেশনাল ডিজাইনার। ক্লায়েন্টের ভিশনকে সুন্দর ভিজ্যুয়ালে রূপ দেওয়াই আমার লক্ষ্য।</div>
+  <div class="about-grid">
+    <div class="about-card"><div class="about-icon">🎨</div><h4>ক্রিয়েটিভ ডিজাইন</h4><p>প্রতিটি ডিজাইনে অনন্য ক্রিয়েটিভিটি এবং প্রফেশনালিজম।</p></div>
+    <div class="about-card"><div class="about-icon">⏰</div><h4>সময়মতো ডেলিভারি</h4><p>নির্ধারিত সময়ের মধ্যে উচ্চমানের কাজ ডেলিভারি।</p></div>
+    <div class="about-card"><div class="about-icon">🔄</div><h4>আনলিমিটেড রিভিশন</h4><p>ক্লায়েন্ট সন্তুষ্ট না হওয়া পর্যন্ত রিভিশন করা হয়।</p></div>
+    <div class="about-card"><div class="about-icon">🎧</div><h4>২৪/৭ সাপোর্ট</h4><p>যেকোনো সময় যোগাযোগ করুন, সাথে সাথে সাড়া পাবেন।</p></div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="section" id="portfolio">
+  <div class="section-tag">Portfolio</div>
+   <div class="port-thumb">
+  <img src="Alamin.jpg" style="width:100%;height:50px;object-fit:cover;">
+  <div class="section-title">আমার কাজের গ্যালারি</div>
+  <div class="section-sub">সাম্প্রতিক কিছু কাজের নমুনা দেখুন।</div>
+  <div class="port-thumb">
+  <img src="Logo 4 Color New.jpg" style="width:100%;height:80px;object-fit:cover;">
+  <div class="portfolio-grid">
+    <div class="port-card">
+      <div class="port-thumb" style="background:#EEEDFE">🎨</div>
+      <div class="port-info"><h4>লোগো ডিজাইন</h4><p>ব্র্যান্ড আইডেন্টিটি</p><span class="port-tag" style="background:#EEEDFE;color:#3C3489">Illustrator</span></div>
+    </div>
+    <div class="port-card">
+      <div class="port-thumb" style="background:#E1F5EE">🖼️</div>
+      <div class="port-info"><h4>পোস্টার ডিজাইন</h4><p>ইভেন্ট ও প্রমোশন</p><span class="port-tag" style="background:#E1F5EE;color:#085041">Photoshop</span></div>
+    </div>
+    <div class="port-card">
+      <div class="port-thumb" style="background:#FAEEDA">🏷️</div>
+      <div class="port-info"><h4>ব্যানার ডিজাইন</h4><p>প্রিন্ট ও ডিজিটাল</p><span class="port-tag" style="background:#FAEEDA;color:#633806">Print Ready</span></div>
+    </div>
+    <div class="port-card">
+      <div class="port-thumb" style="background:#FAECE7">📱</div>
+      <div class="port-info"><h4>সোশ্যাল মিডিয়া</h4><p>Facebook & Instagram</p><span class="port-tag" style="background:#FAECE7;color:#712B13">Social</span></div>
+    </div>
+    <div class="port-card">
+      <div class="port-thumb" style="background:#FBEAF0">📜</div>
+      <div class="port-info"><h4>সার্টিফিকেট</h4><p>অ্যাওয়ার্ড ডিজাইন</p><span class="port-tag" style="background:#FBEAF0;color:#72243E">Canva</span></div>
+    </div>
+    <div class="port-thumb">
+  <img src="logo1.jpg" style="width:100%;height:120px;object-fit:cover;">
+</div>
+      <div class="port-info"><h4>আইডি কার্ড</h4><p>কর্পোরেট ডিজাইন</p><span class="port-tag" style="background:#E6F1FB;color:#0C447C">Corporate</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="section-tag">Services</div>
+  <div class="section-title">আমার সার্ভিসমূহ</div>
+  <div class="section-sub">আপনার ব্যবসার জন্য প্রয়োজনীয় সকল ডিজাইন সার্ভিস।</div>
+  <div class="services-grid">
+    <div class="svc-card"><div class="svc-icon">🎨</div><h4>লোগো ও ব্র্যান্ডিং</h4><p>প্রফেশনাল লোগো ও ব্র্যান্ড আইডেন্টিটি তৈরি।</p></div>
+    <div class="svc-card"><div class="svc-icon">📢</div><h4>পোস্টার ও ব্যানার</h4><p>প্রিন্ট রেডি পোস্টার ও ব্যানার ডিজাইন।</p></div>
+    <div class="svc-card"><div class="svc-icon">📱</div><h4>সোশ্যাল মিডিয়া</h4><p>ফেসবুক, ইনস্টাগ্রাম পোস্ট ও কভার।</p></div>
+    <div class="svc-card"><div class="svc-icon">📄</div><h4>ব্রোশার ও ফ্লায়ার</h4><p>আকর্ষণীয় ব্রোশার ও প্রমোশনাল ফ্লায়ার।</p></div>
+    <div class="svc-card"><div class="svc-icon">🪪</div><h4>আইডি কার্ড</h4><p>কর্পোরেট ও স্কুল আইডি কার্ড ডিজাইন।</p></div>
+    <div class="svc-card"><div class="svc-icon">📜</div><h4>সার্টিফিকেট</h4><p>অ্যাওয়ার্ড ও সার্টিফিকেট ডিজাইন।</p></div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section" id="pricing">
+  <div class="section-tag">Pricing</div>
+  <div class="section-title">মূল্য তালিকা</div>
+  <div class="section-sub">সাশ্রয়ী মূল্যে প্রফেশনাল ডিজাইন সার্ভিস।</div>
+  <div class="pricing-grid">
+    <div class="price-card">
+      <div class="price-badge">Basic</div>
+      <h4>বেসিক প্যাকেজ</h4>
+      <div class="price-amount">৳500 <span>/ প্রজেক্ট</span></div>
+      <ul class="price-features">
+        <li>✅ ১টি ডিজাইন কনসেপ্ট</li>
+        <li>✅ ২টি রিভিশন</li>
+        <li>✅ JPG/PNG ফাইল</li>
+        <li>✅ ৩ দিনে ডেলিভারি</li>
+      </ul>
+      <button class="price-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">অর্ডার করুন</button>
+    </div>
+    <div class="price-card featured">
+      <div class="price-badge">⭐ Most Popular</div>
+      <h4>স্ট্যান্ডার্ড প্যাকেজ</h4>
+      <div class="price-amount">৳1200 <span>/ প্রজেক্ট</span></div>
+      <ul class="price-features">
+        <li>✅ ৩টি ডিজাইন কনসেপ্ট</li>
+        <li>✅ আনলিমিটেড রিভিশন</li>
+        <li>✅ AI/EPS সোর্স ফাইল</li>
+        <li>✅ ২ দিনে ডেলিভারি</li>
+      </ul>
+      <button class="price-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">অর্ডার করুন</button>
+    </div>
+    <div class="price-card">
+      <div class="price-badge">Premium</div>
+      <h4>প্রিমিয়াম প্যাকেজ</h4>
+      <div class="price-amount">৳2500 <span>/ প্রজেক্ট</span></div>
+      <ul class="price-features">
+        <li>✅ ৫টি ডিজাইন কনসেপ্ট</li>
+        <li>✅ আনলিমিটেড রিভিশন</li>
+        <li>✅ সকল ফরম্যাটে ফাইল</li>
+        <li>✅ ২৪ ঘণ্টায় ডেলিভারি</li>
+      </ul>
+      <button class="price-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">অর্ডার করুন</button>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="section-tag">Contact</div>
+  <div class="section-title">যোগাযোগ করুন</div>
+  <div class="section-sub">আপনার প্রজেক্ট নিয়ে আলোচনা করতে এখনই মেসেজ করুন।</div>
+  <div class="contact-wrapper">
     <div>
-        <div style="font-size:2rem;font-weight:700;">ডিজাইন শপ</div>
-        <div>প্রিমিয়াম গ্রাফিক ডিজাইন রিসোর্স</div>
+      <div class="contact-info">
+        <div class="contact-row">📞 +880 1761399365</div>
+        <div class="contact-row">📧 yourname@email.com</div>
+        <div class="contact-row">📘 facebook.com/yourpage</div>
+        <div class="contact-row">📍 ঢাকা, বাংলাদেশ</div>
+      </div>
     </div>
-</div>
-</header>
-
-<div class="main-content">
-
-<!-- PROFILE -->
-<div class="profile-sidebar">
-    <img src="my-photo.jpg">
-    <h2>Fx Alamin</h2>
-    <p><strong>মোবাইল:</strong> 01XXXXXXXXXX</p>
-    <p>প্রফেশনাল গ্রাফিক ডিজাইনার</p>
-</div>
-
-<!-- GALLERY -->
-<div class="gallery">
-
-<div class="card" onclick="showModal('design1.jpg','ফলের উৎসব পোস্টার ২০২৬','ফেস্টিভাল পোস্টার, প্রিন্ট রেডি',299,'FRUIT2026')">
-    <img src="design1.jpg">
-    <div class="card-info">
-        <h3>ফলের উৎসব পোস্টার ২০২৬</h3>
-        <p class="price">৳ ২৯৯</p>
+    <div class="contact-form">
+      <input type="text" placeholder="আল-আমিন *">
+      <input type="text" placeholder="01761399365">
+      <select>
+        <option value="">কী ধরনের ডিজাইন চান?</option>
+        <option>লোগো ও ব্র্যান্ডিং</option>
+        <option>পোস্টার ও ব্যানার</option>
+        <option>সোশ্যাল মিডিয়া ডিজাইন</option>
+        <option>ব্রোশার ও ফ্লায়ার</option>
+        <option>আইডি কার্ড</option>
+        <option>সার্টিফিকেট</option>
+        <option>অন্যান্য</option>
+      </select>
+      <textarea placeholder="বিস্তারিত লিখুন..."></textarea>
+      <button class="btn-primary" onclick="alert('মেসেজ পাঠানো হয়েছে! শীঘ্রই যোগাযোগ করা হবে।')">মেসেজ পাঠান ✉️</button>
     </div>
-</div>
+  </div>
+</section>
 
-</div>
-</div>
-
-<!-- MODAL -->
-<div id="modal" class="modal" onclick="outsideClick(event)">
-<div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-
-    <img id="modal-image">
-    <div class="modal-info">
-        <h2 id="modal-title"></h2>
-        <p id="modal-desc"></p>
-        <p class="price" id="modal-price"></p>
-
-        <button class="btn" style="background:#10b981;color:white;width:100%;padding:14px;margin-top:10px"
-        onclick="requestDownloadCode()">
-        📥 ডাউনলোড করুন
-        </button>
-
-        <button class="btn" style="background:#6d28d9;color:white;width:100%;padding:14px;margin-top:10px"
-        onclick="orderNow()">
-        🛒 অর্ডার করুন
-        </button>
-    </div>
-</div>
-</div>
-
-<script>
-
-let currentFile="", currentDesignName="", currentCode="";
-
-function showModal(img,title,desc,price,code){
-    currentFile=img;
-    currentDesignName=title;
-    currentCode=code;
-
-    document.getElementById("modal-image").src=img;
-    document.getElementById("modal-title").innerText=title;
-    document.getElementById("modal-desc").innerText=desc;
-    document.getElementById("modal-price").innerText="মূল্য: ৳ "+price;
-
-    document.getElementById("modal").style.display="flex";
-}
-
-function closeModal(){
-    document.getElementById("modal").style.display="none";
-}
-
-function outsideClick(e){
-    if(e.target.id==="modal") closeModal();
-}
-
-function requestDownloadCode(){
-    const input = prompt("ডাউনলোড কোড দিন:");
-    if(input===currentCode){
-        const a=document.createElement("a");
-        a.href=currentFile;
-        a.download=currentFile.split('/').pop();
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        alert("ডাউনলোড শুরু হয়েছে!");
-    }else{
-        alert("ভুল কোড!");
-    }
-}
-
-function orderNow(){
-    const phone="8801XXXXXXXXX"; // তোমার নাম্বার (country code সহ)
-    const msg=`আসসালামু আলাইকুম,%0Aআমি কিনতে চাই:%0A${currentDesignName}`;
-    window.open(`https://wa.me/${phone}?text=${msg}`,"_blank");
-}
-
-// ESC key close
-document.addEventListener("keydown",function(e){
-    if(e.key==="Escape") closeModal();
-});
-
-</script>
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2026 <span>DesignCraft</span> — সকল স্বত্ব সংরক্ষিত</p>
+  <div class="footer-links">
+    <a href="#about">About</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
 
 </body>
 </html>
