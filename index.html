@@ -1,165 +1,263 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ডিজাইন শপ | Fx Alamin</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #f8f9fc; color: #1a1a2e; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ডিজাইন শপ | Fx Alamin</title>
 
-        header {
-            background: linear-gradient(135deg, #6d28d9, #8b5cf6);
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
-        .logo-area {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-        }
-        .logo-area img {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            border: 4px solid white;
-            object-fit: cover;
-        }
-        .logo-text { font-size: 2.2rem; font-weight: 700; }
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-        .main-content {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-            display: flex;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-        .profile-sidebar { text-align: center; min-width: 260px; }
-        .profile-sidebar img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 5px solid #6d28d9;
-        }
+* { margin:0; padding:0; box-sizing:border-box; }
 
-        .gallery {
-            flex: 1;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-        .card {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .card:hover { transform: translateY(-8px); }
-        .card img { width: 100%; height: 220px; object-fit: cover; }
-        .card-info { padding: 15px; text-align: center; }
-        .price { color: #6d28d9; font-weight: 700; }
+body {
+    font-family:'Inter', sans-serif;
+    background:#f8f9fc;
+    color:#1a1a2e;
+}
 
-        /* Modal */
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; align-items: center; justify-content: center; }
-        .modal-content { background: white; max-width: 900px; width: 90%; border-radius: 16px; overflow: hidden; }
-        .modal img { width: 100%; max-height: 70vh; object-fit: contain; }
-        .modal-info { padding: 25px; }
-    </style>
+/* HEADER */
+header {
+    background:linear-gradient(135deg,#6d28d9,#8b5cf6);
+    color:white;
+    padding:20px 0;
+    text-align:center;
+}
+
+.logo-area {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:15px;
+}
+
+.logo-area img {
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    border:4px solid white;
+}
+
+/* LAYOUT */
+.main-content {
+    max-width:1200px;
+    margin:40px auto;
+    padding:0 20px;
+    display:flex;
+    gap:40px;
+    flex-wrap:wrap;
+}
+
+.profile-sidebar {
+    text-align:center;
+    min-width:260px;
+}
+
+.profile-sidebar img {
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    border:5px solid #6d28d9;
+}
+
+/* GALLERY */
+.gallery {
+    flex:1;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card {
+    background:white;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.card:hover {
+    transform:translateY(-8px);
+}
+
+.card img {
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card-info {
+    padding:15px;
+    text-align:center;
+}
+
+.price {
+    color:#6d28d9;
+    font-weight:700;
+}
+
+/* BUTTON */
+.btn {
+    border:none;
+    cursor:pointer;
+    border-radius:10px;
+    font-weight:600;
+}
+
+/* MODAL */
+.modal {
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.85);
+    justify-content:center;
+    align-items:center;
+    z-index:2000;
+    padding:20px;
+}
+
+.modal-content {
+    background:white;
+    max-width:900px;
+    width:100%;
+    border-radius:16px;
+    overflow:hidden;
+    position:relative;
+}
+
+.modal img {
+    width:100%;
+    max-height:70vh;
+    object-fit:contain;
+}
+
+.modal-info {
+    padding:20px;
+}
+
+.close {
+    position:absolute;
+    top:10px;
+    right:15px;
+    font-size:32px;
+    cursor:pointer;
+}
+</style>
 </head>
+
 <body>
-    <header>
-        <div class="logo-area">
-            <img src="my-photo.jpg" alt="Fx Alamin">
-            <div>
-                <div class="logo-text">ডিজাইন শপ</div>
-                <div>প্রিমিয়াম গ্রাফিক ডিজাইন রিসোর্স</div>
-            </div>
-        </div>
-    </header>
 
-    <div class="main-content">
-        <!-- বাম পাশে প্রোফাইল -->
-        <div class="profile-sidebar">
-            <img src="my-photo.jpg" alt="Fx Alamin">
-            <h2>Fx Alamin</h2>
-            <p><strong>মোবাইল:</strong> ০১XXXXXXXXXX</p>
-            <p>প্রফেশনাল গ্রাফিক ডিজাইনার</p>
-        </div>
-
-        <!-- ডান পাশে গ্যালারি -->
-        <div class="gallery">
-            <div class="card" onclick="showModal('design1.jpg', 'ফলের উৎসব পোস্টার ২০২৬', 'ফেস্টিভাল পোস্টার, উচ্চমানের প্রিন্ট রেডি', '299', 'FRUIT2026')">
-                <img src="design1.jpg" alt="ফলের উৎসব">
-                <div class="card-info">
-                    <h3>ফলের উৎসব পোস্টার ২০২৬</h3>
-                    <p class="price">৳ ২৯৯</p>
-                </div>
-            </div>
-
-            <!-- আরও ডিজাইন যোগ করতে এই ব্লক কপি করো -->
-        </div>
+<header>
+<div class="logo-area">
+    <img src="my-photo.jpg">
+    <div>
+        <div style="font-size:2rem;font-weight:700;">ডিজাইন শপ</div>
+        <div>প্রিমিয়াম গ্রাফিক ডিজাইন রিসোর্স</div>
     </div>
+</div>
+</header>
 
-    <!-- Modal -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span onclick="closeModal()" style="position:absolute; top:15px; right:25px; font-size:35px; cursor:pointer;">&times;</span>
-            <img id="modal-image" src="" alt="">
-            <div class="modal-info">
-                <h2 id="modal-title"></h2>
-                <p id="modal-desc"></p>
-                <p class="price" id="modal-price"></p>
-                <button class="btn" style="background:#10b981; color:white; width:100%; padding:14px; margin:10px 0;" onclick="requestDownloadCode()">📥 ডাউনলোড করুন</button>
-                <button class="btn" style="background:#6d28d9; color:white; width:100%; padding:14px;" onclick="orderNow()">🛒 অর্ডার করুন</button>
-            </div>
-        </div>
+<div class="main-content">
+
+<!-- PROFILE -->
+<div class="profile-sidebar">
+    <img src="my-photo.jpg">
+    <h2>Fx Alamin</h2>
+    <p><strong>মোবাইল:</strong> 01XXXXXXXXXX</p>
+    <p>প্রফেশনাল গ্রাফিক ডিজাইনার</p>
+</div>
+
+<!-- GALLERY -->
+<div class="gallery">
+
+<div class="card" onclick="showModal('design1.jpg','ফলের উৎসব পোস্টার ২০২৬','ফেস্টিভাল পোস্টার, প্রিন্ট রেডি',299,'FRUIT2026')">
+    <img src="design1.jpg">
+    <div class="card-info">
+        <h3>ফলের উৎসব পোস্টার ২০২৬</h3>
+        <p class="price">৳ ২৯৯</p>
     </div>
+</div>
 
-    <script>
-        let currentFile = "", currentDesignName = "", currentCode = "";
+</div>
+</div>
 
-        function showModal(img, title, desc, price, code) {
-            currentFile = img;
-            currentDesignName = title;
-            currentCode = code;
-            document.getElementById('modal-image').src = img;
-            document.getElementById('modal-title').innerText = title;
-            document.getElementById('modal-desc').innerText = desc;
-            document.getElementById('modal-price').innerHTML = `মূল্য: ৳ ${price}`;
-            document.getElementById('modal').style.display = "flex";
-        }
+<!-- MODAL -->
+<div id="modal" class="modal" onclick="outsideClick(event)">
+<div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
 
-        function closeModal() {
-            document.getElementById('modal').style.display = "none";
-        }
+    <img id="modal-image">
+    <div class="modal-info">
+        <h2 id="modal-title"></h2>
+        <p id="modal-desc"></p>
+        <p class="price" id="modal-price"></p>
 
-        function requestDownloadCode() {
-            const userInput = prompt(`"${currentDesignName}" ডাউনলোড করতে কোড দিন:`);
-            if (userInput === currentCode) {
-                const link = document.createElement('a');
-                link.href = currentFile;
-                link.download = currentFile;
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                alert("✅ ডাউনলোড শুরু হয়েছে!");
-            } else {
-                alert("❌ ভুল কোড!");
-            }
-        }
+        <button class="btn" style="background:#10b981;color:white;width:100%;padding:14px;margin-top:10px"
+        onclick="requestDownloadCode()">
+        📥 ডাউনলোড করুন
+        </button>
 
-        function orderNow() {
-            const phone = "880XXXXXXXXXX"; // তোমার নাম্বার দাও
-            const msg = `আসসালামু আলাইকুম,%0Aআমি এই ডিজাইন কিনতে চাই:%0A*${currentDesignName}*`;
-            window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
-        }
-    </script>
+        <button class="btn" style="background:#6d28d9;color:white;width:100%;padding:14px;margin-top:10px"
+        onclick="orderNow()">
+        🛒 অর্ডার করুন
+        </button>
+    </div>
+</div>
+</div>
+
+<script>
+
+let currentFile="", currentDesignName="", currentCode="";
+
+function showModal(img,title,desc,price,code){
+    currentFile=img;
+    currentDesignName=title;
+    currentCode=code;
+
+    document.getElementById("modal-image").src=img;
+    document.getElementById("modal-title").innerText=title;
+    document.getElementById("modal-desc").innerText=desc;
+    document.getElementById("modal-price").innerText="মূল্য: ৳ "+price;
+
+    document.getElementById("modal").style.display="flex";
+}
+
+function closeModal(){
+    document.getElementById("modal").style.display="none";
+}
+
+function outsideClick(e){
+    if(e.target.id==="modal") closeModal();
+}
+
+function requestDownloadCode(){
+    const input = prompt("ডাউনলোড কোড দিন:");
+    if(input===currentCode){
+        const a=document.createElement("a");
+        a.href=currentFile;
+        a.download=currentFile.split('/').pop();
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        alert("ডাউনলোড শুরু হয়েছে!");
+    }else{
+        alert("ভুল কোড!");
+    }
+}
+
+function orderNow(){
+    const phone="8801XXXXXXXXX"; // তোমার নাম্বার (country code সহ)
+    const msg=`আসসালামু আলাইকুম,%0Aআমি কিনতে চাই:%0A${currentDesignName}`;
+    window.open(`https://wa.me/${phone}?text=${msg}`,"_blank");
+}
+
+// ESC key close
+document.addEventListener("keydown",function(e){
+    if(e.key==="Escape") closeModal();
+});
+
+</script>
+
 </body>
 </html>
