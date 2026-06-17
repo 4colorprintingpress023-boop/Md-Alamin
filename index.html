@@ -3,54 +3,89 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DesignCraft Marketplace</title>
+<title>DesignCraft — Marketplace</title>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI}
 
 body{
-  background:#f6f7ff;
+  background:#f6f3ff;
   color:#1a1a2e;
 }
 
-/* HEADER */
-header{
-  background:white;
-  padding:15px 20px;
+/* NAV */
+nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  padding:15px 25px;
+  background:white;
   position:sticky;
   top:0;
   z-index:1000;
-  box-shadow:0 2px 10px rgba(0,0,0,0.05);
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
 }
 
 .logo{
-  font-size:20px;
-  font-weight:800;
+  font-size:22px;
+  font-weight:900;
   color:#6d28d9;
 }
 
-/* SEARCH */
-.search-box input{
-  padding:10px;
-  width:250px;
-  border:1px solid #ddd;
-  border-radius:8px;
+nav a{
+  margin:0 10px;
+  text-decoration:none;
+  color:#444;
+  font-weight:500;
 }
+
+/* HERO (ShorifArt style colorful) */
+.hero{
+  padding:70px 20px;
+  text-align:center;
+  background:linear-gradient(135deg,#7c3aed,#06b6d4,#f59e0b);
+  color:white;
+  border-radius:0 0 40px 40px;
+}
+
+.hero h1{
+  font-size:42px;
+  font-weight:900;
+}
+
+.hero p{
+  margin-top:10px;
+  font-size:16px;
+  opacity:0.9;
+}
+
+.hero-btn{
+  margin-top:20px;
+}
+
+.hero-btn button{
+  padding:12px 20px;
+  border:none;
+  margin:5px;
+  border-radius:10px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.btn1{background:white;color:#6d28d9}
+.btn2{background:#111;color:white}
 
 /* CATEGORY */
 .categories{
   display:flex;
   gap:10px;
-  padding:15px;
+  padding:20px;
   overflow-x:auto;
 }
 
 .cat{
-  padding:8px 14px;
   background:white;
+  padding:8px 15px;
   border-radius:20px;
   cursor:pointer;
   border:1px solid #eee;
@@ -63,9 +98,7 @@ header{
 }
 
 /* GRID */
-.container{
-  padding:20px;
-}
+.container{padding:20px}
 
 .grid{
   display:grid;
@@ -75,17 +108,17 @@ header{
 
 .card{
   background:white;
-  border-radius:12px;
+  border-radius:14px;
   overflow:hidden;
   cursor:pointer;
-  box-shadow:0 5px 15px rgba(0,0,0,0.05);
+  box-shadow:0 5px 15px rgba(0,0,0,0.06);
   transition:0.3s;
 }
 .card:hover{transform:translateY(-5px)}
 
 .card img{
   width:100%;
-  height:160px;
+  height:170px;
   object-fit:cover;
 }
 
@@ -95,7 +128,7 @@ header{
 
 .price{
   color:#6d28d9;
-  font-weight:700;
+  font-weight:800;
 }
 
 /* MODAL */
@@ -112,7 +145,7 @@ header{
   background:white;
   width:90%;
   max-width:650px;
-  border-radius:10px;
+  border-radius:12px;
   overflow:hidden;
 }
 
@@ -131,54 +164,73 @@ header{
   padding:12px;
   border:none;
   margin-top:10px;
-  cursor:pointer;
   border-radius:8px;
   font-weight:600;
-}
-
-.btn-green{background:#10b981;color:white}
-.btn-purple{background:#6d28d9;color:white}
-
-.close{
-  position:absolute;
-  right:20px;
-  top:10px;
-  font-size:28px;
   cursor:pointer;
-  color:white;
 }
 
-/* RESPONSIVE */
-@media(max-width:600px){
-  .search-box input{width:150px}
+.green{background:#10b981;color:white}
+.purple{background:#6d28d9;color:white}
+
+/* SECTION TITLE */
+.section-title{
+  text-align:center;
+  font-size:24px;
+  margin:30px 0 10px;
+  font-weight:800;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  background:#111;
+  color:white;
+  margin-top:40px;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="logo">DesignCraft Market</div>
-  <div class="search-box">
-    <input type="text" id="search" placeholder="Search design..." onkeyup="searchDesign()">
+<!-- NAV -->
+<nav>
+  <div class="logo">DesignCraft</div>
+  <div>
+    <a href="#">Home</a>
+    <a href="#shop">Shop</a>
+    <a href="#contact">Contact</a>
   </div>
-</header>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Creative Design Marketplace</h1>
+  <p>Premium Posters, Logos & Graphics — Download & Order Instantly</p>
+
+  <div class="hero-btn">
+    <button class="btn1">Browse Designs</button>
+    <button class="btn2">Contact Me</button>
+  </div>
+</div>
 
 <!-- CATEGORY -->
 <div class="categories">
-  <div class="cat" onclick="filterCat('all')">All</div>
-  <div class="cat" onclick="filterCat('poster')">Poster</div>
-  <div class="cat" onclick="filterCat('logo')">Logo</div>
-  <div class="cat" onclick="filterCat('banner')">Banner</div>
+  <div class="cat" onclick="filter('all')">All</div>
+  <div class="cat" onclick="filter('poster')">Poster</div>
+  <div class="cat" onclick="filter('logo')">Logo</div>
+  <div class="cat" onclick="filter('banner')">Banner</div>
 </div>
 
-<!-- PRODUCT GRID -->
-<div class="container">
-<div class="grid" id="grid">
+<!-- SHOP -->
+<div class="container" id="shop">
+<div class="section-title">🔥 Trending Designs</div>
 
-<!-- PRODUCT -->
+<div class="grid">
+
+<!-- CARD -->
 <div class="card" data-cat="poster"
-onclick="openModal('design1.jpg','Festival Poster','Premium Poster Design',299,'CODE123')">
+onclick="openModal('design1.jpg','Festival Poster','High quality festival poster',299,'CODE1')">
   <img src="design1.jpg">
   <div class="card-body">
     <h4>Festival Poster</h4>
@@ -187,7 +239,7 @@ onclick="openModal('design1.jpg','Festival Poster','Premium Poster Design',299,'
 </div>
 
 <div class="card" data-cat="logo"
-onclick="openModal('design2.jpg','Logo Design','Brand Logo',499,'LOGO999')">
+onclick="openModal('design2.jpg','Logo Design','Brand logo premium design',499,'CODE2')">
   <img src="design2.jpg">
   <div class="card-body">
     <h4>Logo Design</h4>
@@ -201,31 +253,36 @@ onclick="openModal('design2.jpg','Logo Design','Brand Logo',499,'LOGO999')">
 <!-- MODAL -->
 <div class="modal" id="modal" onclick="closeModal(event)">
   <div class="modal-box">
-    <img id="mImg">
+    <img id="img">
     <div class="modal-content">
-      <h3 id="mTitle"></h3>
-      <p id="mDesc"></p>
-      <p class="price" id="mPrice"></p>
+      <h3 id="title"></h3>
+      <p id="desc"></p>
+      <p class="price" id="price"></p>
 
-      <button class="btn btn-green" onclick="downloadFile()">Download</button>
-      <button class="btn btn-purple" onclick="orderNow()">Order WhatsApp</button>
+      <button class="btn green" onclick="download()">Download</button>
+      <button class="btn purple" onclick="order()">Order WhatsApp</button>
     </div>
   </div>
 </div>
 
+<!-- FOOTER -->
+<footer>
+  © 2026 DesignCraft — All Rights Reserved
+</footer>
+
 <script>
 
-let file="", code="", title="";
+let file="", code="", name="";
 
 function openModal(img,t,d,p,c){
   file=img;
-  title=t;
   code=c;
+  name=t;
 
-  document.getElementById("mImg").src=img;
-  document.getElementById("mTitle").innerText=t;
-  document.getElementById("mDesc").innerText=d;
-  document.getElementById("mPrice").innerText="৳ "+p;
+  document.getElementById("img").src=img;
+  document.getElementById("title").innerText=t;
+  document.getElementById("desc").innerText=d;
+  document.getElementById("price").innerText="৳ "+p;
 
   document.getElementById("modal").style.display="flex";
 }
@@ -235,8 +292,8 @@ function closeModal(e){
     document.getElementById("modal").style.display="none";
 }
 
-function downloadFile(){
-  let input=prompt("Enter code:");
+function download(){
+  let input=prompt("Enter download code:");
   if(input===code){
     let a=document.createElement("a");
     a.href=file;
@@ -245,33 +302,17 @@ function downloadFile(){
   }else alert("Wrong code!");
 }
 
-function orderNow(){
+function order(){
   let phone="8801761399365";
-  let msg=`Hello,%0AI want this design:%0A${title}`;
+  let msg=`Hello,%0AI want this design:%0A${name}`;
   window.open(`https://wa.me/${phone}?text=${msg}`);
 }
 
-/* SEARCH */
-function searchDesign(){
-  let input=document.getElementById("search").value.toLowerCase();
+/* FILTER */
+function filter(cat){
   let cards=document.querySelectorAll(".card");
-
   cards.forEach(c=>{
-    let text=c.innerText.toLowerCase();
-    c.style.display=text.includes(input)?"block":"none";
-  });
-}
-
-/* CATEGORY FILTER */
-function filterCat(cat){
-  let cards=document.querySelectorAll(".card");
-
-  cards.forEach(c=>{
-    if(cat==="all"){
-      c.style.display="block";
-    }else{
-      c.style.display=c.dataset.cat===cat?"block":"none";
-    }
+    c.style.display=(cat==="all" || c.dataset.cat===cat)?"block":"none";
   });
 }
 
